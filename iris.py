@@ -1,3 +1,5 @@
+!pip install seaborn
+
 # First, we'll import pandas, a data processing and CSV file I/O library
 import pandas as pd
 
