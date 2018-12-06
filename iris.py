@@ -1,5 +1,7 @@
 !pip3 install seaborn
 
+# code example from https://www.kaggle.com/ashokdavas/iris-data-analysis-pandas-numpy
+
 # First, we'll import pandas, a data processing and CSV file I/O library
 import pandas as pd
 
@@ -31,12 +33,17 @@ sns.FacetGrid(iris, hue="variety", size=6) \
     .add_legend()
 
 # you can see that all below combinations are providing a good distribution of "Species"
-sns.factorplot(x="sepal.length",y="sepal.width",data=iris,hue="variety")
-sns.factorplot(x="sepal.length",y="petal.length",data=iris,hue="variety")
-sns.factorplot(x="petal.width",y="sepal.width",data=iris,hue="variety")
-sns.factorplot(x="petal.length",y="petal.width",data=iris,hue="variety")
+sns.factorplot(x="sepal.length",y="sepal.width",data=iris,hue="variety", size=10)
+sns.factorplot(x="sepal.length",y="petal.length",data=iris,hue="variety", size=10)
+sns.factorplot(x="petal.width",y="sepal.width",data=iris,hue="variety", size=10)
+sns.factorplot(x="petal.length",y="petal.width",data=iris,hue="variety", size=10)
 
 # let you easily view both a joint distribution and its marginals at once.
 # A seaborn jointplot shows bivariate scatterplots and univariate histograms in the same figure
 # Can't provide hue in joint plot
 sns.jointplot(x="sepal.length", y="sepal.width", data=iris,size=5,kind="scatter") #scatter is default kind
+
+# A clear picture of distribution can be seen with pairplot. Pairplot displays distribution of data
+# according to every combination.
+# In pair plot, members except diagonals are joint plot
+sns.pairplot(iris,hue="variety",diag_kind="kde")
